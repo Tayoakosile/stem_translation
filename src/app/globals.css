@@ -1,13 +1,12 @@
 @import "tailwindcss";
 
-
 @theme {
   /* White  */
-  --color-white-1: #E7E7E7;
-  --color-white-2: #F2F2F2;
-  --color-white-3: #F8F8F8;
-  --color-white-4: #FBFCFD;
-  --color-white-5: #F9FCFF;
+  --color-white-1: #e7e7e7;
+  --color-white-2: #f2f2f2;
+  --color-white-3: #f8f8f8;
+  --color-white-4: #fbfcfd;
+  --color-white-5: #f9fcff;
 
   /* Black */
   --color-black-1: #252525;
@@ -15,35 +14,61 @@
 
   /* Gray */
   --color-gray-1: #999999;
+  --color-gray-2: #f6f6f6;
 
   /* Blue */
   --color-blue-1: #197be7;
 
   /* Shadow */
-  --shadow-1: 0px 0px 16px 7px #ECECEC33;
+  --shadow-1: 0px 0px 16px 7px #ececec33;
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
   scroll-behavior: smooth;
 }
 
 /* Gradient button styles */
 .gradient-primary {
-  background: linear-gradient(146.3deg, rgb(250, 140, 84) 28.56%, rgb(251, 49, 187) 116.9%);
+  background: linear-gradient(
+    146.3deg,
+    rgb(250, 140, 84) 28.56%,
+    rgb(251, 49, 187) 116.9%
+  );
 }
 
 .gradient-features {
-  background: linear-gradient(130.73deg, rgb(56, 178, 192) 10.01%, rgb(29, 130, 226) 11.79%, rgb(25, 123, 231) 30.53%, rgb(36, 142, 217) 69.26%, rgb(60, 186, 186) 116.28%);
+  background: linear-gradient(
+    130.73deg,
+    rgb(56, 178, 192) 10.01%,
+    rgb(29, 130, 226) 11.79%,
+    rgb(25, 123, 231) 30.53%,
+    rgb(36, 142, 217) 69.26%,
+    rgb(60, 186, 186) 116.28%
+  );
 }
 
 .gradient-orange-pink {
-  background: linear-gradient(130.07deg, rgb(250, 140, 84) 28.56%, rgb(251, 49, 187) 116.9%);
+  background: linear-gradient(
+    130.07deg,
+    rgb(250, 140, 84) 28.56%,
+    rgb(251, 49, 187) 116.9%
+  );
 }
 
 .gradient-purple-pink {
-  background: linear-gradient(130.07deg, rgb(93, 88, 232) 28.56%, rgb(235, 34, 218) 116.9%);
+  background: linear-gradient(
+    130.07deg,
+    rgb(93, 88, 232) 28.56%,
+    rgb(235, 34, 218) 116.9%
+  );
 }
 
 .gradient-send {
-  background: linear-gradient(116.26deg, rgb(250, 140, 84) 28.56%, rgb(251, 49, 187) 116.9%);
+  background: linear-gradient(
+    116.26deg,
+    rgb(250, 140, 84) 28.56%,
+    rgb(251, 49, 187) 116.9%
+  );
 }
