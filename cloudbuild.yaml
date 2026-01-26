@@ -1,0 +1,62 @@
+steps:
+  # Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/stem-translation:$SHORT_SHA'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/stem-translation:latest'
+      - '.'
+    timeout: '1200s'
+
+  # Push the container image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'gcr.io/$PROJECT_ID/stem-translation:$SHORT_SHA'
+    timeout: '600s'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'gcr.io/$PROJECT_ID/stem-translation:latest'
+    timeout: '600s'
+
+  # Deploy container image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'stem-translation'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/stem-translation:$SHORT_SHA'
+      - '--region'
+      - 'us-central1'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      - '--port'
+      - '8080'
+      - '--memory'
+      - '512Mi'
+      - '--cpu'
+      - '1'
+      - '--min-instances'
+      - '0'
+      - '--max-instances'
+      - '10'
+      - '--timeout'
+      - '300'
+    timeout: '600s'
+
+images:
+  - 'gcr.io/$PROJECT_ID/stem-translation:$SHORT_SHA'
+  - 'gcr.io/$PROJECT_ID/stem-translation:latest'
+
+options:
+  machineType: 'E2_HIGHCPU_8'
+  logging: CLOUD_LOGGING_ONLY
+
+timeout: '1800s'
